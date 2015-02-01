@@ -1,0 +1,6 @@
+<% @posts.each do |p| %>
+  <div class="post">
+    <h1><%= emojify(p.subject) %></h1>
+    <p><%= emojify(p.content) %></p>
+  </div>
+<% end %>
