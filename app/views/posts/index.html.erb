@@ -1,6 +1,13 @@
-<% @posts.each do |p| %>
-  <div class="post">
-    <h1><%= emojify(p.subject) %></h1>
-    <p><%= emojify(p.content) %></p>
+<div class="row">
+  <div class="columns small-12">
+    <% @posts.each do |p| %>
+      <div class="post">
+        <a href="#" data-reveal-id="post<%= p.id %>"><h1><%= emojify(p.subject) %></h1></a>
+        <div id="post<%= p.id %>" class="content reveal-modal" data-reveal >
+          <h1><%= emojify(p.subject) %></h1>
+          <p><%= emojify(p.content) %></p>
+        </div>
+      </div>
+    <% end %>
   </div>
-<% end %>
+</div>
