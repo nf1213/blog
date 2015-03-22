@@ -4,10 +4,16 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
 
   include ApplicationHelper
-  
+
   def authenticate
     unless is_nicole?
       redirect_to posts_path, alert: "You are not authorized to post on Nicole's Blog!"
+    end
+  end
+
+  def authorize
+    unless current_user
+      redirect_to posts_path, alert: "Please sign in to comment."
     end
   end
 end

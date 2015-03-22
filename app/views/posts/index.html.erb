@@ -3,12 +3,13 @@
     <% @posts.each do |p| %>
       <a href="#" data-reveal-id="post<%= p.id %>">
         <div class="panel"
-          <h1><%= emojify(p.subject) %></h1>
+        <h1><%= emojify(p.subject) %></h1>
         </div>
       </a>
       <div id="post<%= p.id %>" class="content reveal-modal" data-reveal >
         <h1><%= emojify(p.subject) %></h1>
         <p><%= emojify(p.content) %></p>
+        <%= link_to "Leave a comment", new_post_comment_path(p) %>
         <a class="close-reveal-modal">X</a>
       </div>
     <% end %>
