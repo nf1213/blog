@@ -2,5 +2,11 @@
   <div class="columns small-12 panel">
     <h1><%= emojify(@post.subject) %></h1>
     <p><%= emojify(@post.content) %></p>
+    <%= link_to "Leave a comment", new_post_comment_path(@post) %>
+    <% @post.comments.each do |c| %>
+      <div class="callout panel">
+        <p><%= emojify(c.content) %></p>
+      </div>
+    <% end %>
   </div>
 </div>

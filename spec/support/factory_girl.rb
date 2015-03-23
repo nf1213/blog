@@ -28,4 +28,10 @@ FactoryGirl.define do
     user
     post
   end
+
+  factory :comment_with_emoji, class: Comment do
+    content "Real cool! :sunglasses:"
+    user
+    post
+  end
 end

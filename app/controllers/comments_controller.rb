@@ -10,7 +10,7 @@ class CommentsController < ApplicationController
     @comment = Comment.new(comment_params)
     @post = Post.find(params[:post_id])
     if @comment.save
-      redirect_to posts_path, notice: "Comment posted."
+      redirect_to post_path(@post), notice: "Comment posted."
     else
       render :new
     end
