@@ -16,7 +16,7 @@ class PostsController < ApplicationController
   def create
     @post = Post.new(post_params)
     if @post.save
-      redirect_to posts_path, notice: "You posted!"
+      redirect_to post_path(@post), notice: "You posted!"
     else
       render :new
     end
