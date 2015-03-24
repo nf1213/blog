@@ -24,7 +24,7 @@ feature "Nicole updates her post" do
     click_link "Edit"
 
     fill_in "Content", with: "Edited"
-    click_on "Post"
+    click_on "Post!"
 
     expect(page).to have_content "Post updated"
     expect(page).to have_content "Edited"

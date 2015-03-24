@@ -12,7 +12,7 @@ feature 'Nicole posts' do
     sign_in(@user)
     expect(page).to_not have_content "New Post"
     visit new_post_path
-    expect(page).to have_content "You are not authorized to post on Nicole's Blog!"
+    expect(page).to have_content "You are not authorized, this is Nicole's Blog!"
   end
 
   scenario 'nicole provides invalid attributes' do
@@ -23,7 +23,7 @@ feature 'Nicole posts' do
     fill_in "Subject", with: ""
     fill_in "Content", with: ""
 
-    click_on "Create Post"
+    click_on "Post!"
 
     expect(page).to have_content "Subjectcan't be blank"
     expect(page).to have_content "Contentcan't be blank"
@@ -37,7 +37,7 @@ feature 'Nicole posts' do
     fill_in "Subject", with: @post.subject
     fill_in "Content", with: @post.content
 
-    click_on "Create Post"
+    click_on "Post!"
 
     expect(page).to have_content "You posted!"
     expect(page).to have_content @post.subject
@@ -52,7 +52,7 @@ feature 'Nicole posts' do
     fill_in "Subject", with: @emoji_post.subject
     fill_in "Content", with: @emoji_post.content
 
-    click_on "Create Post"
+    click_on "Post!"
 
     expect(page).to have_emoji("smile")
     expect(page).to have_emoji("question")

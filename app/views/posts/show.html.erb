@@ -3,6 +3,9 @@
     <h1><%= emojify(@post.subject) %></h1>
     <p><%= emojify(@post.content) %></p>
     <%= link_to "Leave a comment", new_post_comment_path(@post) %>
+    <% if is_nicole? %>
+      | <%= link_to "Edit", edit_post_path(@post) %>
+    <% end %>
     <% @post.comments.each do |c| %>
       <div class="callout panel">
         <p><%= emojify(c.content) %></p>
