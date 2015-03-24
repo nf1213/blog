@@ -4,7 +4,7 @@
       <%= f.input :content %>
       <%= f.hidden_field :user_id, value: current_user.id %>
       <%= f.hidden_field :post_id, value: @post.id %>
-      <%= f.submit "Post Comment" %>
+      <%= f.submit "Post Comment", class: "button" %>
     <% end %>
   </div>
 </div>
