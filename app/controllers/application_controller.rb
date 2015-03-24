@@ -7,7 +7,7 @@ class ApplicationController < ActionController::Base
 
   def authenticate
     unless is_nicole?
-      redirect_to posts_path, alert: "You are not authorized to post on Nicole's Blog!"
+      redirect_to posts_path, alert: "You are not authorized, this is Nicole's Blog!"
     end
   end
 
