@@ -9,6 +9,10 @@
     <% @post.comments.each do |c| %>
       <div class="callout panel">
         <p><%= emojify(c.content) %></p>
+        - <%= c.user.email %>
+        <% if current_user && c.user == current_user %>
+          | <%= link_to "Edit Comment", edit_post_comment_path(@post, c) %>
+        <% end %>
       </div>
     <% end %>
   </div>

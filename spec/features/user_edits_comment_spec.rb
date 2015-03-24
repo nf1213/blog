@@ -5,7 +5,7 @@ feature "User edits comment" do
     @user = FactoryGirl.create(:user)
     @other_user = FactoryGirl.create(:user)
     @post = FactoryGirl.create(:post)
-    @comment = FactoryGirl.create(:comment, user: @uer, post: @post)
+    @comment = FactoryGirl.create(:comment, user: @user, post: @post)
   end
 
   scenario "User must be the poster of comment" do
