@@ -5,6 +5,7 @@
     <%= link_to "Leave a comment", new_post_comment_path(@post) %>
     <% if is_nicole? %>
       | <%= link_to "Edit", edit_post_path(@post) %>
+      | <%= link_to "Delete Post", post_path(@post), method: :delete %>
     <% end %>
     <% @post.comments.each do |c| %>
       <div class="callout panel">
