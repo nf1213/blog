@@ -3,7 +3,7 @@ require "rails_helper"
 feature "User deletes their comment" do
   before(:each) do
     @user = FactoryGirl.create(:user)
-    @other_user = FactoryGirl.create(:other_user)
+    @other_user = FactoryGirl.create(:user)
     @post = FactoryGirl.create(:post)
     @comment = FactoryGirl.create(:comment, post: @post, user: @user)
   end

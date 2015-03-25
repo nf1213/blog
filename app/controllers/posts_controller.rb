@@ -1,12 +1,13 @@
 class PostsController < ApplicationController
   before_action :authenticate, only: [:new, :create, :edit, :update]
+  before_action :get_post, except: [:new, :create, :index]
+
+  def get_post
+    @post = Post.find(params[:id])
+  end
 
   def index
     @posts = Post.all
-  end
-
-  def show
-    @post = Post.find(params[:id])
   end
 
   def new
@@ -16,27 +17,22 @@ class PostsController < ApplicationController
   def create
     @post = Post.new(post_params)
     if @post.save
-      redirect_to post_path(@post), notice: "You posted!"
+      redirect_to @post, notice: "You posted!"
     else
       render :new
     end
   end
 
-  def edit
-    @post = Post.find(params[:id])
-  end
-
   def update
-    @post = Post.find(params[:id])
     if @post.update(post_params)
-      redirect_to post_path(@post), notice: "Post updated"
+      redirect_to @post, notice: "Post updated"
     else
       render :edit
     end
   end
 
   def destroy
-    @post = Post.find(params[:id]).destroy
+    @post.destroy
     redirect_to posts_path, notice: "Post deleted"
   end
 

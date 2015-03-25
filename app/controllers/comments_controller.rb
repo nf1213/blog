@@ -1,37 +1,43 @@
 class CommentsController < ApplicationController
   before_action :authorize
+  before_action :get_post
+
+  def get_post
+    @post = Post.find(params[:post_id])
+  end
 
   def new
-    @post = Post.find(params[:post_id])
     @comment = Comment.new(post: @post)
   end
 
   def create
     @comment = Comment.new(comment_params)
-    @post = Post.find(params[:post_id])
     if @comment.save
-      redirect_to post_path(@post), notice: "Comment posted."
+      redirect_to @post, notice: "Comment posted."
     else
       render :new
     end
   end
 
   def edit
-    @post = Post.find(params[:post_id])
     @comment = Comment.find(params[:id])
     unless current_user == @comment.user
-      redirect_to post_path(@comment.post), notice: "You are not authorized!"
+      redirect_to @post, notice: "You are not authorized!"
     end
   end
 
   def update
-    @post = Post.find(params[:post_id])
     @comment = Comment.find(params[:id])
     if @comment.update(comment_params)
-      redirect_to post_path(@comment.post), notice: "Comment Edited"
+      redirect_to @post, notice: "Comment Edited"
     else
       render :update
     end
+  end
+
+  def destroy
+    Comment.find(params[:id]).destroy
+    redirect_to @post, notice: "Comment Deleted"
   end
 
   private
