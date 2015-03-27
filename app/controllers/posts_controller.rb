@@ -1,9 +1,14 @@
 class PostsController < ApplicationController
   before_action :authenticate, only: [:new, :create, :edit, :update]
   before_action :get_post, except: [:new, :create, :index]
+  before_action :get_uploader, only: [:update, :create, :index, :show]
 
   def get_post
     @post = Post.find(params[:id])
+  end
+
+  def get_uploader
+    @uploader = BlogImageUploader.new
   end
 
   def index
@@ -15,6 +20,7 @@ class PostsController < ApplicationController
   end
 
   def create
+    @uploader.store!(params[:image])
     @post = Post.new(post_params)
     if @post.save
       redirect_to @post, notice: "You posted!"
@@ -24,6 +30,7 @@ class PostsController < ApplicationController
   end
 
   def update
+    @uploader.store!(params[:image])
     if @post.update(post_params)
       redirect_to @post, notice: "Post updated"
     else
@@ -39,7 +46,7 @@ class PostsController < ApplicationController
   private
 
   def post_params
-    params.require(:post).permit(:content, :subject)
+    params.require(:post).permit(:content, :subject, :blog_image)
   end
 
 end

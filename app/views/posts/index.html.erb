@@ -3,6 +3,9 @@
     <% @posts.each do |p| %>
       <div class="panel">
         <h3><%= link_to emojify(p.subject), post_path(p) %></h3>
+        <% if p.blog_image %>
+          <%= image_tag p.blog_image_url %>
+        <% end %>
       </div>
     <% end %>
   </div>

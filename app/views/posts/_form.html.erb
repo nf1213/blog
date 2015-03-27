@@ -1,5 +1,6 @@
 <%= simple_form_for @post do |f| %>
   <%= f.input :subject %>
   <%= f.input :content %>
+  <%= f.input :blog_image, as: :file %>
   <%= f.submit "Post!", class: "button" %>
 <% end %>

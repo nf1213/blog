@@ -13,6 +13,7 @@ gem 'devise'
 gem 'foundation-rails'
 gem 'gemoji'
 gem 'simple_form'
+gem 'carrierwave'
 
 group :development, :test do
   gem 'byebug'
