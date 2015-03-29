@@ -16,6 +16,8 @@ class PostsController < ApplicationController
   end
 
   def new
+    @client = Instagram.client(access_token: session[:access_token])
+    @user = @client.user
     @post = Post.new
   end
 
@@ -27,6 +29,11 @@ class PostsController < ApplicationController
     else
       render :new
     end
+  end
+
+  def edit
+    @client = Instagram.client(access_token: session[:access_token])
+    @user = @client.user
   end
 
   def update
@@ -46,7 +53,7 @@ class PostsController < ApplicationController
   private
 
   def post_params
-    params.require(:post).permit(:content, :subject, :blog_image)
+    params.require(:post).permit(:content, :subject, :blog_image, :instagram_link)
   end
 
 end

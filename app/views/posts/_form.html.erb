@@ -2,5 +2,14 @@
   <%= f.input :subject %>
   <%= f.input :content %>
   <%= f.input :blog_image, as: :file %>
+  <%= f.input :instagram_link %>
+  <button class="tiny success" data-reveal-id="myModal">Add...</button></br>
+
+  <div id="myModal" class="reveal-modal" data-reveal aria-labelledby="modalTitle" aria-hidden="true" role="dialog">
+    <a class="close-reveal-modal" aria-label="Close">X</a>
+    <% @client.user_recent_media.each do |item| %>
+      <img src="<%= item.images.thumbnail.url %>" id="<%= item.link %>" class="instagram" />
+    <% end %>
+  </div>
   <%= f.submit "Post!", class: "button" %>
 <% end %>

@@ -16,3 +16,12 @@
 //= require_tree .
 
 $(function(){ $(document).foundation(); });
+
+var instagrams = document.getElementsByClassName("instagram");
+for(var i = 0; i < instagrams.length; i++) {
+  instagrams[i].addEventListener("click", function(){
+    var field = document.getElementById("post_instagram_link");
+    field.value = event.srcElement.id;
+    $('#myModal').foundation('reveal', 'close');
+  });
+}

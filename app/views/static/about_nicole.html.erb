@@ -25,12 +25,5 @@
       <h3>What I'm listening to</h3>
       <a href="http://www.last.fm/user/nf1213/?chartstyle=Insomniac"><img src="http://imagegen.last.fm/Insomniac/recenttracks/nf1213.gif" border="0" alt="nf1213's Profile Page" /></a>
     </div>
-
-    <div class="panel">
-      <h3>My cat - <a href="http://instagram.com/tuckietucker" target='blank'>Instagram - Tuckietucker</a></h3>
-      <% @client.user_recent_media.each do |item| %>
-        <%= render html: (@client.oembed(item.link).html).html_safe %>
-      <% end %>
-    </div>
   </div>
 </div>
