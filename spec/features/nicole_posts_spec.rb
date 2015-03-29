@@ -57,4 +57,20 @@ feature 'Nicole posts' do
     expect(page).to have_emoji("smile")
     expect(page).to have_emoji("question")
   end
+
+  scenario 'nicole makes a post with an image' do
+    sign_in(@nicole)
+
+    visit new_post_path
+
+    fill_in "Subject", with: @post.subject
+    fill_in "Content", with: @post.content
+
+    image = "nicole_and_cat.jpg"
+    attach_file "Blog image", "./app/assets/images/#{image}"
+
+    click_on "Post!"
+
+    expect(page).to have_image(@post)
+  end
 end

@@ -2,7 +2,7 @@
   <div class="columns small-12 panel">
     <h1><%= emojify(@post.subject) %></h1>
     <% if @post.blog_image %>
-      <%= image_tag @post.blog_image_url %>
+      <%= image_tag @post.blog_image_url, class: "img" %>
     <% end %>
     <p><%= emojify(@post.content) %></p>
     <%= link_to "Leave a comment", new_post_comment_path(@post) %>
