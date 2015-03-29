@@ -13,3 +13,4 @@
 /tmp
 
 /public/uploads/post/blog_image/
+.env

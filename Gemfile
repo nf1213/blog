@@ -14,6 +14,7 @@ gem 'foundation-rails'
 gem 'gemoji'
 gem 'simple_form'
 gem 'carrierwave'
+gem 'instagram'
 
 group :development, :test do
   gem 'byebug'
@@ -25,5 +26,6 @@ group :development, :test do
   gem 'launchy'
   gem 'factory_girl'
   gem 'valid_attribute'
+  gem 'dotenv-rails'
   gem 'shoulda-matchers', require: false
 end
