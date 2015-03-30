@@ -7,7 +7,7 @@
           <% if p.blog_image %>
             <%= image_tag p.blog_image_url, class: "img" %>
           <% end %>
-          <% if p.instagram_link %>
+          <% if p.instagram_link.length > 0 %>
             <%= render html: (Instagram.oembed(p.instagram_link).html).html_safe %>
           <% end %>
         </div>

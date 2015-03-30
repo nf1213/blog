@@ -4,7 +4,7 @@
     <% if @post.blog_image %>
       <%= image_tag @post.blog_image_url, class: "img" %>
     <% end %>
-    <% if @post.instagram_link %>
+    <% if @post.instagram_link.length > 0 %>
       <%= render html: (Instagram.oembed(@post.instagram_link).html).html_safe %>
     <% end %>
     <p><%= emojify(@post.content) %></p>
