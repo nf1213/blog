@@ -1,0 +1,17 @@
+<%= link_to post_path(post) do %>
+  <div class="panel">
+    <h1><%= emojify(post.subject) %></h1>
+    <% if post.blog_image %>
+      <%= image_tag post.blog_image_url, class: "img" %>
+    <% end %>
+    <% if post.instagram_link.length > 0 %>
+      <%= render html: (Instagram.oembed(post.instagram_link).html).html_safe %>
+    <% end %>
+    <p><%= emojify(post.content) %></p>
+    <%= link_to "Leave a comment", new_post_comment_path(post) %>
+    <% if is_nicole? %>
+      | <%= link_to "Edit", edit_post_path(post) %>
+      | <%= link_to "Delete Post", post_path(post), method: :delete %>
+    <% end %>
+  </div>
+<% end %>
