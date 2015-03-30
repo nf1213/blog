@@ -17,6 +17,7 @@ gem 'carrierwave'
 gem 'instagram'
 gem 'whenever'
 gem 'will_paginate', '~> 3.0.5'
+gem 'foundation-will_paginate'
 
 group :development, :test do
   gem 'byebug'
