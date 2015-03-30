@@ -26,7 +26,6 @@ feature 'Nicole posts' do
     click_on "Post!"
 
     expect(page).to have_content "Subjectcan't be blank"
-    expect(page).to have_content "Contentcan't be blank"
   end
 
   scenario 'nicole posts successfully' do
