@@ -17,7 +17,6 @@ class PostsController < ApplicationController
 
   def new
     @client = Instagram.client(access_token: session[:access_token])
-    @user = @client.user
     @post = Post.new
   end
 
@@ -33,7 +32,6 @@ class PostsController < ApplicationController
 
   def edit
     @client = Instagram.client(access_token: session[:access_token])
-    @user = @client.user
   end
 
   def update

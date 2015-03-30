@@ -15,6 +15,7 @@ gem 'gemoji'
 gem 'simple_form'
 gem 'carrierwave'
 gem 'instagram'
+gem 'whenever'
 
 group :development, :test do
   gem 'byebug'
