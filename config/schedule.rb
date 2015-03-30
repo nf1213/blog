@@ -20,6 +20,6 @@
 # Learn more: http://github.com/javan/whenever
 set :output, {:error => "log/cron_error_log.log", :standard => "log/cron_log.log"}
 
-every 10.minutes do
+every :hour do
   rake "posts:fetch"
 end
