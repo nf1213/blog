@@ -8,4 +8,11 @@ module EmojiHelper
       end
     end.html_safe if content.present?
   end
+
+  def nicolify(content)
+    content = emojify(content)
+    h(content).to_str.gsub(/```([\s\S]*)```/) do |match|
+      %(<code>#{$1}</code>)
+    end.html_safe if content.present?
+  end
 end
