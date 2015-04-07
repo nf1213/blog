@@ -29,3 +29,9 @@
   height: 50px;
   width: 50px;
 }
+
+.code {
+  background-color: #dddddd;
+  border: 1px solid #aaaaaa;
+  display: inline-block;
+}

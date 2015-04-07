@@ -11,8 +11,20 @@ module EmojiHelper
 
   def nicolify(content)
     content = emojify(content)
-    h(content).to_str.gsub(/```([\s\S]*)```/) do |match|
+
+    #code blocks
+    content = h(content).to_str.gsub(/```([\s\S]*)```/) do |match|
       %(<code>#{$1}</code>)
+    end.html_safe if content.present?
+
+    #new lines
+    content = h(content).to_str.gsub(/\n/) do |match|
+      %(<br>)
+    end.html_safe if content.present?
+
+    #bold
+    content = h(content).to_str.gsub(/\*([\s\S]*)\*/) do |match|
+      %(<b>#{$1}</b>)
     end.html_safe if content.present?
   end
 end
