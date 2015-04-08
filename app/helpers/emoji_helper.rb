@@ -23,12 +23,12 @@ module EmojiHelper
     end.html_safe if content.present?
 
     #bold
-    content = h(content).to_str.gsub(/\*\*([\s\S]*)\*\*/) do |match|
+    content = h(content).to_str.gsub(/\*([\s\S]*)\*/) do |match|
       %(<b>#{$1}</b>)
     end.html_safe if content.present?
 
     #italic
-    content = h(content).to_str.gsub(/\*([\s\S]*)\*/) do |match|
+    content = h(content).to_str.gsub(/_([\s\S]*)_/) do |match|
       %(<i>#{$1}</i>)
     end.html_safe if content.present?
   end
