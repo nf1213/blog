@@ -25,7 +25,7 @@ class PostsController < ApplicationController
   end
 
   def create
-    @uploader.store!(params[:image])
+    @uploader.store!(params[:blog_image])
     @post = Post.new(post_params)
     if @post.save
       redirect_to @post, notice: "You posted!"
@@ -39,7 +39,7 @@ class PostsController < ApplicationController
   end
 
   def update
-    @uploader.store!(params[:image])
+    @uploader.store!(params[:blog_image])
     if @post.update(post_params)
       redirect_to @post, notice: "Post updated"
     else

@@ -18,6 +18,7 @@ gem 'instagram'
 gem 'whenever'
 gem 'will_paginate', '~> 3.0.5'
 gem 'foundation-will_paginate'
+gem 'active_model_serializers', '0.8.3'
 
 group :development, :test do
   gem 'byebug'
